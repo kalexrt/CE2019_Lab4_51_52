@@ -8,6 +8,14 @@ class Graph {
   int numEdges = 0;
 
    public:
+   
+   //Is empty check
+   void isEmpty(){
+       if (numVertices == 0)
+       cout<<"true\n";
+       else
+       cout<<"false\n";
+   }
   // Initialize the matrix to zero
  void graph (int numVertices) {
     this->numVertices = numVertices;
@@ -18,6 +26,7 @@ class Graph {
         adjMatrix[i][j] = false;
     }
   }
+   
 
    // Add Vertex
    void addVertex(int i){
@@ -70,6 +79,7 @@ class Graph {
 
 int main() {
   Graph g;
+  g.isEmpty();
   g.addVertex(1);
   g.addVertex(2);
   g.addVertex(3);
@@ -87,5 +97,5 @@ int main() {
   g.removeEdge(1,2);
   g.numEdge();
   g.Matrix(); 
-  
+  g.isEmpty();
 }
