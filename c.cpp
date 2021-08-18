@@ -116,6 +116,8 @@ int outdegree(int k)
   {
     cout <<"Vertex doesnt exist"<<"\n";
   }
+  else
+  {
   for(int i=0; i<numVertices; ++i)
   {
     if(adjMatrix[k][i] == true)
@@ -123,6 +125,7 @@ int outdegree(int k)
       c[count] = i;
       count++;
     }
+  }
   }
   return count;
 }
@@ -133,13 +136,25 @@ int degree(int k)
   return count; 
 }
 
-void neighbours(int k){
+void neighbours(int k)
+{
   for (int i=0 ; i<indegree(k) ; i++) 
-   {cout<<"In-neighbours is"<<b[i]<<"\n";}
+   {cout<<"In-neighbours are "<<b[i]<<"\n";}
   for (int i=0 ; i<outdegree(k) ; i++)
-   {cout<<"Out-neighnours is"<<c[i]<<"\n"; } 
+   {cout<<"Out-neighnours are "<<c[i]<<"\n"; } 
 }
 
+bool neighbour(int i, int j)
+{
+  if(adjMatrix[i][j]== true || adjMatrix[j][i]== true )
+  {
+    return true;
+  }
+  else
+  {
+    return false;
+  }
+}
 
 };
 
@@ -174,5 +189,6 @@ int main()
   cout<<g.indegree(1)<<"\n";
   cout<<g.degree(2)<<"\n";
   g.neighbours(2);
+  cout<<g.neighbour(0,3)<<"\n";
   g.isEmpty();
 }
