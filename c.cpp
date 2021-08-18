@@ -125,6 +125,12 @@ int outdegree(int k)
   return count;
 }
 
+int degree(int k)
+{
+  int count = indegree(k) + outdegree(k);
+  return count; 
+}
+
 };
 
  
