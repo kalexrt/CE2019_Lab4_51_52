@@ -6,6 +6,7 @@ class Graph {
   bool** adjMatrix;
   int numVertices = 0;
   int numEdges = 0;
+  int b[20] , c[20];
   string a;
    public:
    //Is empty check
@@ -89,7 +90,6 @@ class Graph {
 
 int indegree(int k)
 {
-  int a[20];
   int count=0;
   if(k > numVertices)
   {
@@ -101,8 +101,8 @@ int indegree(int k)
     {
       if(adjMatrix[i][k] == true)
       {
-        a[count]=i;
-        count++;
+          b[count] = i;
+          count++;
       }
     }
   }
@@ -111,7 +111,6 @@ int indegree(int k)
 
 int outdegree(int k)
 {
-  int b[20];
   int count=0;
   if(k > numVertices)
   {
@@ -121,7 +120,7 @@ int outdegree(int k)
   {
     if(adjMatrix[k][i] == true)
     {
-      b[count]=i;
+      c[count] = i;
       count++;
     }
   }
@@ -134,13 +133,13 @@ int degree(int k)
   return count; 
 }
 
-void neighbours(int k)
-{
-
-  for(int i=0;i<21;i++)
-  {
-  }
+void neighbours(int k){
+  for (int i=0 ; i<indegree(k) ; i++) 
+   {cout<<"In-neighbours is"<<b[i]<<"\n";}
+  for (int i=0 ; i<outdegree(k) ; i++)
+   {cout<<"Out-neighnours is"<<c[i]<<"\n"; } 
 }
+
 
 };
 
@@ -172,5 +171,8 @@ int main()
   g.numEdge();
   g.Matrix();
   cout<<g.outdegree(2)<<"\n"; 
+  cout<<g.indegree(1)<<"\n";
+  cout<<g.degree(2)<<"\n";
+  g.neighbours(2);
   g.isEmpty();
 }
