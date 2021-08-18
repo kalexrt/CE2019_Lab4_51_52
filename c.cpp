@@ -89,6 +89,7 @@ class Graph {
 
 int indegree(int k)
 {
+  int a[20];
   int count=0;
   if(k > numVertices)
   {
@@ -100,6 +101,7 @@ int indegree(int k)
     {
       if(adjMatrix[i][k] == true)
       {
+        a[count]=i;
         count++;
       }
     }
@@ -109,6 +111,7 @@ int indegree(int k)
 
 int outdegree(int k)
 {
+  int b[20];
   int count=0;
   if(k > numVertices)
   {
@@ -118,6 +121,7 @@ int outdegree(int k)
   {
     if(adjMatrix[k][i] == true)
     {
+      b[count]=i;
       count++;
     }
   }
@@ -128,6 +132,14 @@ int degree(int k)
 {
   int count = indegree(k) + outdegree(k);
   return count; 
+}
+
+void neighbours(int k)
+{
+
+  for(int i=0;i<21;i++)
+  {
+  }
 }
 
 };
