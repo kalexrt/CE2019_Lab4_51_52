@@ -6,9 +6,8 @@ class Graph {
   bool** adjMatrix;
   int numVertices = 0;
   int numEdges = 0;
-
+  string a;
    public:
-   
    //Is empty check
    void isEmpty(){
        if (numVertices == 0)
@@ -49,14 +48,18 @@ class Graph {
   // Add edges
   void addEdge(int i, int j) {
     adjMatrix[i][j] = true;
-    adjMatrix[j][i] = true;
+    if (isDirected() ==  false)
+    {adjMatrix[j][i] = true;}
+    else {}
     numEdges=numEdges+1; 
   }
 
   // Remove edges
   void removeEdge(int i, int j) {
     adjMatrix[i][j] = false;
-    adjMatrix[j][i] = false;
+    if (isDirected() == false)
+    {adjMatrix[j][i] = false;}
+    else {}
     numEdges=numEdges-1; 
   }
 
@@ -74,11 +77,29 @@ class Graph {
       cout << "\n";
     }
   }
+  
+  void direction(string n){
+        a = n;
+  }
+
+  int isDirected(){
+   if (a == "d")
+   {return true;}
+   else
+   {return false;}
+ }
+  
 
 };
 
+ 
+
 int main() {
   Graph g;
+  string n;
+  cout<<"Please enter d for a Directed graph\n";
+  cin>>n;
+  g.direction(n);
   g.isEmpty();
   g.addVertex(1);
   g.addVertex(2);
