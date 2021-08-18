@@ -99,14 +99,31 @@ int indegree(int k)
   {
     for(int i=0; i<numVertices; ++i)
     {
-      if(adjMatrix[i][k-1] == true)
+      if(adjMatrix[i][k] == true)
       {
         count++;
       }
     }
   }
   return count;
-}  
+} 
+
+int outdegree(int k)
+{
+  int count=0;
+  if(k > numVertices)
+  {
+    cout <<"Vertex doesnt exist"<<"\n";
+  }
+  for(int i=0; i<numVertices; ++i)
+  {
+    if(adjMatrix[k][i] == true)
+    {
+      count++;
+    }
+  }
+  return count;
+}
 
 };
 
@@ -136,6 +153,6 @@ int main()
   g.removeEdge(1,2);
   g.numEdge();
   g.Matrix();
-  cout<<g.indegree(1)<<"\n"; 
+  cout<<g.outdegree(2)<<"\n"; 
   g.isEmpty();
 }
