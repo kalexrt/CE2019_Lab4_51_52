@@ -1,4 +1,6 @@
 #include <iostream>
+#include <stdlib.h>
+#include <time.h>
 using namespace std;
 
 class Graph {
@@ -155,14 +157,32 @@ bool neighbour(int i, int j)
     return false;
   }
 }
-
+void random()
+{
+  srand(time(0));
+  int i=rand()%10;
+  for(int e=0; e<i;e++)
+  {
+    addVertex(e);
+  }
+  for(int e=0; e<i;e++)
+  {
+    for(int f=0; f<i;f++)
+    {
+      if(rand()%2==1)
+      {
+        addEdge(e,f);
+      }
+    }
+  }
+}
 };
 
  
 
 int main() 
 {
-  Graph g;
+  Graph g,r;
   string n;
   cout<<"Please enter d for a Directed graph or any other key for undirected\n";
   cin>>n;
@@ -191,4 +211,6 @@ int main()
   g.neighbours(2);
   cout<<g.neighbour(0,3)<<"\n";
   g.isEmpty();
+  r.random();
+  r.Matrix();
 }
