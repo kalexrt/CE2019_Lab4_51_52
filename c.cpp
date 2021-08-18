@@ -87,7 +87,26 @@ class Graph {
    else
    return false;
  }
-  
+
+int indegree(int k)
+{
+  int count=0;
+  if(k > numVertices)
+  {
+    cout <<"Vertex doesnt exist"<<"\n";
+  }
+  else
+  {
+    for(int i=0; i<numVertices; ++i)
+    {
+      if(adjMatrix[i][k-1] == true)
+      {
+        count++;
+      }
+    }
+  }
+  return count;
+}  
 
 };
 
@@ -97,7 +116,7 @@ int main()
 {
   Graph g;
   string n;
-  cout<<"Please enter d for a Directed graph\n";
+  cout<<"Please enter d for a Directed graph or any other key for undirected\n";
   cin>>n;
   g.direction(n);
   g.isEmpty();
@@ -116,6 +135,7 @@ int main()
   g.numVertex();
   g.removeEdge(1,2);
   g.numEdge();
-  g.Matrix(); 
+  g.Matrix();
+  cout<<g.indegree(1)<<"\n"; 
   g.isEmpty();
 }
