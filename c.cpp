@@ -80,8 +80,9 @@ class Graph {
         n = n;
   }
 
-  bool isDirected(){
-   if (n == "Directed")
+  bool isDirected()
+  {
+   if (n == "d")
    {return true;}
    else
    return false;
@@ -92,10 +93,11 @@ class Graph {
 
  
 
-int main() {
+int main() 
+{
   Graph g;
   string n;
-  cout<<"Please enter Directed for a Directed graph\n";
+  cout<<"Please enter d for a Directed graph\n";
   cin>>n;
   g.direction(n);
   g.isEmpty();
