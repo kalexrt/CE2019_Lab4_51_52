@@ -6,7 +6,7 @@ class Graph {
   bool** adjMatrix;
   int numVertices = 0;
   int numEdges = 0;
-  string n;
+  string a;
    public:
    //Is empty check
    void isEmpty(){
@@ -48,7 +48,7 @@ class Graph {
   // Add edges
   void addEdge(int i, int j) {
     adjMatrix[i][j] = true;
-    if (isDirected() == true)
+    if (isDirected() == false)
     {adjMatrix[j][i] = true;}
     numEdges=numEdges+1; 
   }
@@ -56,7 +56,7 @@ class Graph {
   // Remove edges
   void removeEdge(int i, int j) {
     adjMatrix[i][j] = false;
-    if (isDirected() == true)
+    if (isDirected() == false)
     adjMatrix[j][i] = false;
     numEdges=numEdges-1; 
   }
@@ -77,15 +77,14 @@ class Graph {
   }
   
   void direction(string n){
-        n = n;
+        a = n;
   }
 
-  bool isDirected()
-  {
-   if (n == "d")
+  int isDirected(){
+   if (a == "d")
    {return true;}
    else
-   return false;
+   {return false;}
  }
 
 int indegree(int k)
